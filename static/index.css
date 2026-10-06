@@ -65,16 +65,16 @@ body {
     gap: 10px;
     width: 50%;
     height: 48px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 9px #999;
     cursor: pointer;
     font-size: 16px;
     color: #fff;
     font-weight: 600;
 }
 
-.btn-main:hover{
-  background-color: rgb(255, 255, 255);
-  color: black;
+.btn-main:active {
+box-shadow: 0 5px #666;
+transform: translateY(4px);
 }
 
 .btn-create {

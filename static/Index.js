@@ -1,13 +1,13 @@
-const button = document.getElementById("copyBtn");
-const text = document.getElementById("outputUrl")
+const btn = document.getElementById('btn');
+const input = document.getElementById('inpt');
+const originalUrl = document.getElementById('inpt').value.trim();
 
-button.addEventListener("click", () => writeClipboardText(outputUrl.value));
-
-async function writeClipboardText(text) {
-    try {
-        await navigator.clipboard.writeText(text);
-    } catch (error) {
-        console.error(error.message);
+btn.addEventListener("click", function(e)  {
+    if (input.value.trim()) {
+        const encodeUrl = encodeURIComponent("originalUrl")
+        window.location.href = `ready.html?url=${encodeUrl}`;
+    } else {
+        e.preventDefault();
+        window.alert("Paste Your URL");
     }
-    
-}
+});
