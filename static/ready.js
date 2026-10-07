@@ -13,3 +13,6 @@ async function writeClipboardText(text) {
         console.error(error.message);
     }
 }
+
+const url = document.getElementById('originUrl');
+url.innerText = urlParams.get('url');
