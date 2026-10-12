@@ -14,10 +14,11 @@ sebuah solusi URL shortener open-source yang dapat dijalankan sendiri tanpa perl
 -**Backend** Go
 
 
-## Screenshot
+## Preview 
 
-'![Screenshot] (static/docs/dashboard.png)'
-'![Screenshot] (static/docs/page2.png)'
+![OpenShort Preview](static/docs/dashboard.png)
+
+![OpenShort Preview](static/docs/page2.png)
 
 ## Provision
 ```
@@ -71,4 +72,6 @@ OPENSHORT/
 ├── README.md
 ```
 
-## In Progress 
+🚧 Project Status
+
+In Progress — OpenShort is currently under development.
