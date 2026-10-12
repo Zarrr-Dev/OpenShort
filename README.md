@@ -4,7 +4,7 @@ An open-source, self-hosted URL shortener built with Go and SQLite. its lightwei
 
 ## About project
 
-sebuah solusi URL shortener open-source yang dapat dijalankan sendiri tanpa perlu membayar monthly subscription
+An open-source URL shortener solution that is lightweight enough to run locally on a tiny Linux machine, and is free of charge with no subscription required.
 
 ## Feature
 -Shortener URL
