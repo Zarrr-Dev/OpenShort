@@ -16,8 +16,8 @@ sebuah solusi URL shortener open-source yang dapat dijalankan sendiri tanpa perl
 
 ## Screenshot
 
-`![Screenshot] (static/docs/dashboard.png)`
-`![Screenshot] (static/docs/page2.png)`
+'![Screenshot] (static/docs/dashboard.png)'
+'![Screenshot] (static/docs/page2.png)'
 
 ## Provision
 ```
@@ -28,7 +28,9 @@ Pastikan Sudah Terpasang:
 ## How to Install
 
 ### Clone Repository
+```
 git clone https://github.com/Zarrr-Dev/OpenShort.git
+```
 
 ### Enter the folder
 cd OPENSHORT
