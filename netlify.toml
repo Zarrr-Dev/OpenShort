@@ -1,0 +1,7 @@
+# OpenShort's frontend is plain HTML/CSS/JS in `static/`, so no build step is needed.
+# `base` is set explicitly to the repo root to override any stale base directory
+# configured in the Netlify UI.
+[build]
+  base = ""
+  publish = "static"
+  command = ""
