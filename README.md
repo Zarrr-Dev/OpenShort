@@ -6,40 +6,40 @@ An open-source, self-hosted URL shortener built with Go and SQLite. its lightwei
 
 sebuah solusi URL shortener open-source yang dapat dijalankan sendiri tanpa perlu membayar monthly subscription
 
-## Fitur
+## Feature
 -Shortener URL
 
 ## Tech Stack
 -**Frontend:** HTML, CSS, JavaScript
--**Backend** Node.js, Go
--**Database:** SQLite
+-**Backend** Go
+
 
 ## Screenshot
 
-![Screenshot] (docs/dashboard.png)
-![Screenshot] (docs/page2.png)
+`![Screenshot] (static/docs/dashboard.png)`
+`![Screenshot] (static/docs/page2.png)`
 
-## Ketentuan
+## Provision
 ```
 Pastikan Sudah Terpasang:
--Node.js >= 18
 -npm/pnpm
--Golang >= 20
+-Golang
 ```
-### How to Install
+## How to Install
 
-
-
-## Clone Repository
+### Clone Repository
 git clone https://github.com/Zarrr-Dev/OpenShort.git
 
-## Masuk  ke folder 
+### Enter the folder
 cd OPENSHORT
 
-## Install Dependencies
+### Install Dependencies
 npm install
 
-## Struktur Folder
+### Running go
+go run main.go -d static
+
+## Structure Folder
 ```
 OPENSHORT/
 ├── static/
@@ -68,6 +68,5 @@ OPENSHORT/
 |
 ├── README.md
 ```
-## Contact
 
-Zarr - [@Zarrr-Dev] (https://github.com/Zarrr-Dev) - zar553103@gmail.com
+## In Progress 
