@@ -20,12 +20,12 @@ sebuah solusi URL shortener open-source yang dapat dijalankan sendiri tanpa perl
 ![Screenshot] (docs/page2.png)
 
 ## Ketentuan
-
+```
 Pastikan Sudah Terpasang:
 -Node.js >= 18
 -npm/pnpm
 -Golang >= 20
-
+```
 ### How to Install
 
 
@@ -40,7 +40,7 @@ cd OPENSHORT
 npm install
 
 ## Struktur Folder
-
+```
 OPENSHORT/
 ├── static/
 |   ├── assets/
@@ -67,7 +67,7 @@ OPENSHORT/
 ├── main.go
 |
 ├── README.md
-
+```
 ## Contact
 
 Zarr - [@Zarrr-Dev] (https://github.com/Zarrr-Dev) - zar553103@gmail.com
