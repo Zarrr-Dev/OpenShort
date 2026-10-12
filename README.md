@@ -7,7 +7,13 @@ An open-source, self-hosted URL shortener built with Go and SQLite. its lightwei
 An open-source URL shortener solution that is lightweight enough to run locally on a tiny Linux machine, and is free of charge with no subscription required.
 
 ## Feature
--Shortener URL
+```
+-Landing page with a URL field and empty-input validation
+- Result page that shows the original URL and a copy button
+- Go web server that serves the static site
+- Random 6-character code generator
+- In-memory store for code -> URL, protected by a mutex
+```
 
 ## Tech Stack
 -**Frontend:** HTML, CSS, JavaScript
