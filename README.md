@@ -11,7 +11,7 @@ sebuah solusi URL shortener open-source yang dapat dijalankan sendiri tanpa perl
 
 ## Tech Stack
 -**Frontend:** HTML, CSS, JavaScript
--**Backend** Go
+-**Backend:** Go
 
 
 ## Preview 
@@ -22,7 +22,7 @@ sebuah solusi URL shortener open-source yang dapat dijalankan sendiri tanpa perl
 
 ## Provision
 ```
-Pastikan Sudah Terpasang:
+Make sure it is installed:
 -npm/pnpm
 -Golang
 ```
