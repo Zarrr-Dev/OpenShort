@@ -10,6 +10,7 @@ import (
 	"strings"
 	"sync"
 	"time"
+   "os"
 )
 
 func main() {
@@ -17,14 +18,16 @@ func main() {
     http.HandleFunc("/s/", redirectHandler)
 
     rand.Seed(time.Now().UnixNano())
-    port := flag.String("p", "8080", "port to serve on")
+    port := os.Getenv("PORT")
+    if port == "" {
+      port = "8080"
+    }
     directory := flag.String("d", ".", "the directory of static file to host")
     flag.Parse()
-
     http.Handle("/", http.FileServer(http.Dir(*directory)))
 
-    log.Printf("serving %s on HTTP port: %s\n", *directory, *port)
-    log.Fatal(http.ListenAndServe(":"+*port, nil))
+    log.Printf("serving %s on HTTP port: %s\n", *directory, port)
+    log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 const characters = "abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789"
