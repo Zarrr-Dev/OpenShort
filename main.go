@@ -22,7 +22,7 @@ func main() {
     if port == "" {
       port = "8080"
     }
-    directory := flag.String("d", ".", "the directory of static file to host")
+    directory := flag.String("d", "static", "the directory of static file to host")
     flag.Parse()
     http.Handle("/", http.FileServer(http.Dir(*directory)))
 
