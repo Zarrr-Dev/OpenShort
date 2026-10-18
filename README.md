@@ -16,8 +16,8 @@ An open-source URL shortener solution that is lightweight enough to run locally 
 ```
 
 ## Tech Stack
--**Frontend:** HTML, CSS, JavaScript
--**Backend:** Go
+
+- HTML, CSS, JavaScript, and Go
 
 
 ## Preview 
@@ -53,10 +53,12 @@ go run main.go -d static
 OPENSHORT/
 ├── static/
 |   ├── assets/
-|       ├── logo.png
+|   |   ├── logo.png
+|   |
 |   ├──docs/
 |      ├──dashboard.png
 |      ├──page2.png
+|      
 ├── 404.html
 |
 ├── detail.html

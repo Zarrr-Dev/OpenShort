@@ -11,3 +11,12 @@ btn.addEventListener("click", function(e)  {
         window.alert("Paste Your URL");
     }
 });
+
+
+const url = document.getElementById('originUrl');
+url.innerText = urlParams.get('url');
+
+const data = new URLSearchParams();
+data.append("url", originalUrl);
+const response = await fetch("/api/shorten", options);
+const code = await response.text();

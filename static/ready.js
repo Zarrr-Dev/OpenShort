@@ -14,5 +14,11 @@ async function writeClipboardText(text) {
     }
 }
 
+
 const url = document.getElementById('originUrl');
 url.innerText = urlParams.get('url');
+
+const data = new URLSearchParams();
+data.append("url", originalUrl);
+const response = await fetch("/api/shorten", options);
+const code = await response.text();

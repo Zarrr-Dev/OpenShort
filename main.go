@@ -6,14 +6,17 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"net/url"
+	"strings"
 	"sync"
 	"time"
-
 )
 
 func main() {
+    http.HandleFunc("/api/shorten", shortenHandler)
+    http.HandleFunc("/s/", redirectHandler)
+
     rand.Seed(time.Now().UnixNano())
-    fmt.Println(generateCode(6))
     port := flag.String("p", "8080", "port to serve on")
     directory := flag.String("d", ".", "the directory of static file to host")
     flag.Parse()
@@ -53,4 +56,40 @@ func generateCode(length int) string {
     s.mu.Lock()
     defer s.mu.Unlock()
     s.data[code] = urlAsli
+ }
+
+ func shortenHandler(w http.ResponseWriter, r *http.Request) {
+    if r.Method != http.MethodPost {
+       http.Error(w, "Hanya Post yang diizinkan", http.StatusMethodNotAllowed)
+       return
+    }
+       urlAsli := r.FormValue("url")
+
+   if urlAsli == "" {
+      http.Error(w, "URL Tidak Boleh Kosong", http.StatusBadRequest)
+      return
+   }
+      parsedURL, err := url.ParseRequestURI(urlAsli)
+   if err != nil || parsedURL.Host == "" ||
+   (parsedURL.Scheme != "http" && parsedURL.Scheme != "https") {
+      http.Error(w, "URL tidak valid", http.StatusBadRequest)
+      return
+   }
+
+   var code string
+    code = generateCode(6)
+    store.Simpan(urlAsli, code)
+    fmt.Fprint(w, code)
+ }
+
+ func redirectHandler(w http.ResponseWriter, r *http.Request) {
+   code := strings.TrimPrefix(r.URL.Path, "/s/")
+   urlAsli, ada := store.Search(code)
+
+   if  !ada  {
+   http.NotFound(w, r)
+   return
+   }
+      http.Redirect(w, r, urlAsli, http.StatusFound)
+      return
  }
