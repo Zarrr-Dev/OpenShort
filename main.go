@@ -93,6 +93,6 @@ func generateCode(length int) string {
    http.NotFound(w, r)
    return
    }
-      http.Redirect(w, r, urlAsli, http.StatusFound)
-      return
+   http.Redirect(w, r, urlAsli, http.StatusFound)
+   return
  }
