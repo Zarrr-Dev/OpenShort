@@ -3,14 +3,15 @@
 An open-source, self-hosted URL shortener built with Go. it's lightweight enough to run on a tiny Linux machine, so you can own your short links instead of paying for a monthly subscription service.
 
 ## Feature
-``
+
 - Landing page with a URL field and empty-input validation
 - Result page that shows the original URL and a copy button
 - Go web server that serves the static site
 - Random 6-character code generator
 - In-memory store for code -> URL, protected by a mutex
-- 
-``
+- Short URL generation
+- Redirect URL To original Url with short URL
+
 
 ## Tech Stack
 
@@ -55,7 +56,7 @@ OPENSHORT/
 |   |  ├──dashboard.png
 |   |  ├──page2.png
 |   |  
-    ├── 404.html
+|   ├── 404.html
 |   ├── detail.html
 |   ├── index.css
 |   ├── index.html
