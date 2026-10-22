@@ -90,7 +90,14 @@ func generateCode(length int) string {
    urlAsli, ada := store.Search(code)
 
    if  !ada  {
-   http.NotFound(w, r)
+   isi, err := os.ReadFile("static/404.html")
+   if err != nil {
+   	http.NotFound(w, r)
+   	return
+   }
+   w.Header().Set("Content-Type", "text/html; charset=utf-8")
+   w.WriteHeader(http.StatusNotFound)
+   w.Write(isi)
    return
    }
    http.Redirect(w, r, urlAsli, http.StatusFound)
