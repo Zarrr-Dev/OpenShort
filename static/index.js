@@ -13,10 +13,10 @@ btn.addEventListener("click", async function(e)  {
         });
 
             if (!response.ok) {
-                console.log("permintaan gagal");
+            	const code = await response.text();
+                window.alert("URL Tidak Valid")
                 return;
             }
-            const code = await response.text();
             console.log(code);
 
             const params = new URLSearchParams();

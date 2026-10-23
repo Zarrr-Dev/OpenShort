@@ -1,5 +1,4 @@
 # OpenShort
-
 An open-source, self-hosted URL shortener built with Go. it's lightweight enough to run on a tiny Linux machine, so you can own your short links instead of paying for a monthly subscription service.
 
 ## Feature
@@ -12,16 +11,12 @@ An open-source, self-hosted URL shortener built with Go. it's lightweight enough
 - Short URL generation
 - Redirect URL To original Url with short URL
 
-
 ## Tech Stack
-
 - HTML, CSS, JavaScript, and Go
-
 
 ## Preview 
 
 ![OpenShort Preview](static/docs/dashboard.png)
-
 ![OpenShort Preview](static/docs/page2.png)
 
 ## Requirements
@@ -37,7 +32,6 @@ git clone https://github.com/Zarrr-Dev/OpenShort.git
 
 ### Enter the folder
 cd OpenShort
-
 
 ### Running go
 go run main.go
@@ -67,7 +61,5 @@ OPENSHORT/
 ├── main.go
 ├── README.md
 ```
-
 🚧 Project Status
-
 In Progress — OpenShort is currently under development.
