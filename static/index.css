@@ -79,12 +79,18 @@ body {
 }
 
 .btn-create {
+	  display: flex;
+	  justify-content: center;
+	  text-align: center;
+	  align-items: center;
+	  color: black;
     width: 160px;
     height: 46px;
     background: transparent;
     border: 2px solid #181414;
     box-shadow: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
 
