@@ -11,8 +11,9 @@ import (
 	"sync"
 	"time"
    "os"
+   "encoding/json"
 )
-
+const dataFile = "data.json";
 func main() {
     http.HandleFunc("/api/shorten", shortenHandler)
     http.HandleFunc("/s/", redirectHandler)
@@ -25,10 +26,19 @@ func main() {
     directory := flag.String("d", "static", "the directory of static file to host")
     flag.Parse()
     http.Handle("/", http.FileServer(http.Dir(*directory)))
+    
+    data, err := os.ReadFile(dataFile)
+    if err == nil {
+    	if err := json.Unmarshal(data, &store.data); err != nil {
+    		log.Println(err)
+    	} 
+    } else if !os.IsNotExist(err) {
+    	log.Println(err)
+    }
 
     log.Printf("serving %s on HTTP port: %s\n", *directory, port)
     log.Fatal(http.ListenAndServe(":"+port, nil))
-}
+    }
 
 const characters = "abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789"
 
@@ -59,6 +69,14 @@ func generateCode(length int) string {
     s.mu.Lock()
     defer s.mu.Unlock()
     s.data[code] = urlAsli
+    b, err := json.Marshal(s.data)
+    if err != nil {
+    	log.Println(err)
+    }
+    err = os.WriteFile(dataFile, b, 0644)
+    if err != nil {
+    	log.Println(err)
+    }
  }
 
  func shortenHandler(w http.ResponseWriter, r *http.Request) {
