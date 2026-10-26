@@ -10,36 +10,44 @@ An open-source, self-hosted URL shortener built with Go. it's lightweight enough
 - In-memory store for code -> URL, protected by a mutex
 - Short URL generation
 - Redirect URL To original Url with short URL
+- Copy feedback
+- Landing URL validation
+- Saved shortener link
+- Link saved in local storage
 
-## Tech Stack
+## Tech stack
 - HTML, CSS, JavaScript, and Go
 
 ## Preview 
 
-![OpenShort Preview](static/docs/dashboard.png)
-![OpenShort Preview](static/docs/page2.png)
+![OpenShort Preview](static/docs/Dashboard.png)
+![OpenShort Preview](static/docs/Ready-Page.png)
+![OpenShort Preview](static/docs/404-Page.png)
 
 ## Requirements
 ```
--Go installed
+Go 1.27.1
 ```
 ## Installation
 
-### Clone Repository
+### Clone repository
 ```
 git clone https://github.com/Zarrr-Dev/OpenShort.git
 ```
 
 ### Enter the folder
+```
 cd OpenShort
-
-### Running go
+```
+### Run the server
+```
 go run main.go
-
-### Open The Aplication
+```
+### Open the application
+```
 http://localhost:8080
-
-## Structure Folder
+```
+## Structure folder
 ```
 OPENSHORT/
 ├── static/
@@ -47,19 +55,27 @@ OPENSHORT/
 |   |   ├── logo.png
 |   |
 |   ├──docs/
-|   |  ├──dashboard.png
-|   |  ├──page2.png
+|   |  ├──Dashboard.png
+|   |  ├──Ready-Page.png
+|   |  ├──404-Page.png
 |   |  
 |   ├── 404.html
-|   ├── detail.html
+|   ├── riwayat.html
 |   ├── index.css
 |   ├── index.html
 |   ├── index.js
 |   ├── ready.html
 |   ├── ready.js
+|
+├── .gitignore
 ├── go.mod
 ├── main.go
 ├── README.md
 ```
-🚧 Project Status
-In Progress — OpenShort is currently under development.
+
+## Demo link
+```
+https://openshort-production.up.railway.app/
+```
+## 🚧 Project Status
+MVP: Shortening and Redirect work

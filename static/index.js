@@ -18,7 +18,11 @@ btn.addEventListener("click", async function(e)  {
                 return;
             } 
             const code = await response.text();
-
+            
+            const riwayat = ambilDataRiwayat();
+            riwayat.push({ code: code, url: originalUrl});
+            simpanRiwayat(riwayat);
+            
             const params = new URLSearchParams();
             params.set("code", code);
             params.set("url", originalUrl);
@@ -31,3 +35,16 @@ btn.addEventListener("click", async function(e)  {
         window.alert("Paste Your URL");
     }
 });
+
+	function ambilDataRiwayat() {
+		const dataTersimpan = localStorage.getItem('riwayat');
+		if (dataTersimpan === null) {
+			return[];
+		} else {
+			return JSON.parse(dataTersimpan);
+		}
+	}
+	
+	function simpanRiwayat(data) {
+		localStorage.setItem('riwayat', JSON.stringify(data));
+	}
