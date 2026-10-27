@@ -4,7 +4,11 @@ if ( dataTersimpan=== null ) {
 	daftar.textContent = "No history yet";
 } else {
 	const riwayat = JSON.parse(dataTersimpan);
-	riwayat.forEach((item) => {
+	
+	riwayat.reverse();
+	const terbaru = riwayat.slice(0, 10);
+	
+	terbaru.forEach((item) => {
 	const card = document.createElement('div');
 	const linkCode = document.createElement('a');
 	const teksUrl = document.createElement('p');
