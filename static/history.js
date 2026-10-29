@@ -17,7 +17,7 @@ if ( dataTersimpan=== null ) {
 	linkCode.href = '/s/' + item.code;
 	teksUrl.textContent = item.url;
 	
-	card.append(linkCode);
-	card.append(teksUrl);
+	daftar.append(linkCode);
+	daftar.append(teksUrl);
 	daftar.append(card);
 })};
