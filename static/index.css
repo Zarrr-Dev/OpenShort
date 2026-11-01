@@ -33,8 +33,15 @@ body {
     font-weight: bold;
 }
 .material-symbols-outlined {
+	  display: inline-block;
     margin-bottom: auto;
-    font-size: 50px;
+    color: #30fb2a;
+    background-color: #7494ec;
+    border-radius: 50%;
+    font-size: 64px;
+    padding: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+    font-variation-settings: 'FIL' 1;
 }
 
 .main-content {

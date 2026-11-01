@@ -21,6 +21,9 @@ if ( dataTersimpan=== null ) {
 		const riwayatBaru = riwayat.filter((x) => x.code !== item.code);
 		localStorage.setItem('riwayat', JSON.stringify(riwayatBaru));
 		newDiv.remove();
+		if (riwayatBaru.length === 0) {
+			daftar.textContent = "No history yet";
+		}
 	});
 	
 	linkCode.textContent = item.code;

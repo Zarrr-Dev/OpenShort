@@ -3,21 +3,20 @@ An open-source, self-hosted URL shortener built with Go. it's lightweight enough
 
 ## Feature
 
-- Landing page with a URL field and empty-input validation
-- Result page that shows the original URL and a copy button
-- Go web server that serves the static site
-- Random 6-character code generator
-- In-memory store for code -> URL, protected by a mutex
-- Short URL generation
-- Redirect URL To original Url with short URL
-- Copy feedback
-- Landing URL validation
-- Saved shortener link
-- Link saved in local storage
-- History page
+- Landing page with URL field and empty-input validation.
+- URL format validation (http/https with host).
+- Result page with short URL and original URL.
+- Copy button with "Coppied!" feedback.
+- Redirect /s/<code> to original URL.
+- Custom 404 page for unknown codes.
+- Random 6 chracter code generator.
+- Store code -> URL in memory, presited to data.json.
+- History page, latest 10 items, saved in localStorage.
+- Delete history shortenes URL(browser only).
+
 
 ## Tech stack
-- HTML, CSS, JavaScript, and Go
+- HTML, CSS, JavaScript, and Go.
 
 ## Preview 
 
@@ -60,9 +59,11 @@ OPENSHORT/
 |   |  ├──Dashboard.png
 |   |  ├──Ready-Page.png
 |   |  ├──404-Page.png
+|   |  ├──History-Page.png
 |   |  
 |   ├── 404.html
-|   ├── riwayat.html
+|   ├── history.html
+|   ├── history.js
 |   ├── index.css
 |   ├── index.html
 |   ├── index.js
@@ -80,4 +81,4 @@ OPENSHORT/
 https://openshort-production.up.railway.app/
 ```
 ## 🚧 Project Status
-MVP: Shortening and Redirect work
+MVP: Shortening and Redirect work.
