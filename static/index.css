@@ -67,14 +67,26 @@ body {
 .riwayat-item {
 	color: white;
 	background: #838383;
-	display: inline-block;
+	display: flex;
+	flex-direction: column;
 	padding: 5px 10px;
 	border-radius: 5px;
 	border: 2px solid black;
+	margin-bottom: 15px;
+	align-items: stretch;
+	text-align: left;
 }
 
-.riwayat-item {
-	margin-bottom: 15px;
+.teks-url {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+.kotak-link {
+	color: white;
+	white-space: nowrap;
 }
 
 .list {
@@ -128,6 +140,16 @@ body {
     text-decoration: none;
 }
 
+.btn-delete {
+	color: white;
+	background-color: #7494ec;
+	cursor: pointer;
+	border: none;
+	border-radius: 5px;
+	height: 20px;
+	width: 250px;
+}
+
 
 .original-url {
     display: flex;
@@ -171,4 +193,3 @@ body {
     line-height: 28px;
     margin-top: auto;
 }
-
