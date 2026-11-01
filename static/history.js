@@ -9,15 +9,17 @@ if ( dataTersimpan=== null ) {
 	const terbaru = riwayat.slice(0, 10);
 	
 	terbaru.forEach((item) => {
-	const card = document.createElement('div');
 	const linkCode = document.createElement('a');
 	const teksUrl = document.createElement('p');
 	
 	linkCode.textContent = item.code;
 	linkCode.href = '/s/' + item.code;
 	teksUrl.textContent = item.url;
+	const newDiv = document.createElement('div')
+	newDiv.classList.add('riwayat-item')
+	linkCode.classList.add('kotak-link');
 	
-	daftar.append(linkCode);
-	daftar.append(teksUrl);
-	daftar.append(card);
+	newDiv.append(linkCode, teksUrl);
+	daftar.append(newDiv);
+	
 })};
