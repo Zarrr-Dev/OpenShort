@@ -98,7 +98,13 @@ func generateCode(length int) string {
    }
 
    var code string
-    code = generateCode(6)
+    for {
+    	code = generateCode(6)
+    	_, ada := store.Search(code)
+    	if !ada {
+    		break
+    	}
+    }
     store.Simpan(urlAsli, code)
     fmt.Fprint(w, code)
  }
