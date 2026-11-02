@@ -23,7 +23,6 @@ An open-source, self-hosted URL shortener built with Go. it's lightweight enough
 ![OpenShort Preview](static/docs/Dashboard.png)
 ![OpenShort Preview](static/docs/Ready-Page.png)
 ![OpenShort Preview](static/docs/404-Page.png)
-![OpenShort Priview](static/docs/history-page.png)
 
 ## Requirements
 ```
@@ -59,7 +58,6 @@ OPENSHORT/
 |   |  ├──Dashboard.png
 |   |  ├──Ready-Page.png
 |   |  ├──404-Page.png
-|   |  ├──History-Page.png
 |   |  
 |   ├── 404.html
 |   ├── history.html
