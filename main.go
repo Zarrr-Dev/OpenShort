@@ -13,12 +13,12 @@ import (
    "os"
    "encoding/json"
 )
+
 const dataFile = "data.json";
 func main() {
     http.HandleFunc("/api/shorten", shortenHandler)
     http.HandleFunc("/s/", redirectHandler)
 
-    rand.Seed(time.Now().UnixNano())
     port := os.Getenv("PORT")
     if port == "" {
       port = "8080"

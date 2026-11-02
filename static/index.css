@@ -195,8 +195,20 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
+    flex-direction: column;
+    gap: 5px;
     font-size: 20px;
     font-weight: 600;
     line-height: 28px;
     margin-top: auto;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+	.card {
+		max-width: 560px;
+	}
+	.btn-main {
+		width: 100%;
+	}
 }
