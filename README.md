@@ -20,9 +20,9 @@ An open-source, self-hosted URL shortener built with Go. it's lightweight enough
 
 ## Preview 
 
-![OpenShort Preview](static/docs/Dashboard.png)
-![OpenShort Preview](static/docs/Ready-Page.png)
-![OpenShort Preview](static/docs/404-Page.png)
+![OpenShort Preview](docs/Dashboard.png)
+![OpenShort Preview](docs/Ready-Page.png)
+![OpenShort Preview](docs/404-Page.png)
 
 ## Requirements
 ```

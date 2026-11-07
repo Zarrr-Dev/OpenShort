@@ -127,7 +127,7 @@ body {
     text-decoration: none;
 }
 
-.btn-main:active {
+.btn-main, .btn-404:active {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
