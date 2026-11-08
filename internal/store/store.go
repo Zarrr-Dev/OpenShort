@@ -9,6 +9,11 @@ import (
 	
 	const dataFile = "data/data.json"
 	
+	type Store interface {
+		Search(code string) (string, bool)
+		Simpan(urlAsli, code string)
+	}
+	
 	type SaveCode struct {
     mu sync.Mutex
     data map[string]string

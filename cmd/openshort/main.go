@@ -10,8 +10,9 @@ import (
 )
 
 func main() {
-		http.HandleFunc("/api/shorten", handler.ShortenHandler)
-		http.HandleFunc("/s/", handler.RedirectHandler)
+	  srv := handler.New(&store.Default)
+		http.HandleFunc("/api/shorten", srv.ShortenHandler)
+		http.HandleFunc("/s/", srv.RedirectHandler)
 		
     port := os.Getenv("PORT")
     if port == "" {
