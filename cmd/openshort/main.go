@@ -2,127 +2,30 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
-	"math/rand"
 	"net/http"
-	"net/url"
-	"strings"
-	"sync"
    "os"
-   "encoding/json"
+   "OpenShort/internal/handler"
+   "OpenShort/internal/store"
 )
 
-const dataFile = "data.json";
 func main() {
-    http.HandleFunc("/api/shorten", shortenHandler)
-    http.HandleFunc("/s/", redirectHandler)
-
+		http.HandleFunc("/api/shorten", handler.ShortenHandler)
+		http.HandleFunc("/s/", handler.RedirectHandler)
+		
     port := os.Getenv("PORT")
     if port == "" {
       port = "8080"
     }
-    directory := flag.String("d", "static", "the directory of static file to host")
+    directory := flag.String("d", "web", "the directory of web file to host")
     flag.Parse()
     http.Handle("/", http.FileServer(http.Dir(*directory)))
     
-    data, err := os.ReadFile(dataFile)
-    if err == nil {
-    	if err := json.Unmarshal(data, &store.data); err != nil {
-    		log.Println(err)
-    	} 
-    } else if !os.IsNotExist(err) {
+    err := store.Load()
+    if err != nil && os.IsNotExist(err) == false {
     	log.Println(err)
     }
 
     log.Printf("serving %s on HTTP port: %s\n", *directory, port)
     log.Fatal(http.ListenAndServe(":"+port, nil))
     }
-
-const characters = "abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789"
-
-func generateCode(length int) string {
-    result := make([]byte, length)
-    
-    for i := 0; i < length; i++ {
-        result[i] = characters[rand.Intn(len(characters))]
-    }
-    return string(result)
-}
-
- var store = SaveCode{data: make(map[string]string)}
-
- type SaveCode struct {
-    mu sync.Mutex
-    data map[string]string
- }
-
- func (s *SaveCode) Search(code string) (string, bool) {
-    s.mu.Lock()
-    defer s.mu.Unlock()
-    urlAsli, ada := s.data[code]
-    return urlAsli, ada
-}
-
- func (s *SaveCode) Simpan(urlAsli, code string) {
-    s.mu.Lock()
-    defer s.mu.Unlock()
-    s.data[code] = urlAsli
-    b, err := json.Marshal(s.data)
-    if err != nil {
-    	log.Println(err)
-    }
-    err = os.WriteFile(dataFile, b, 0644)
-    if err != nil {
-    	log.Println(err)
-    }
- }
-
- func shortenHandler(w http.ResponseWriter, r *http.Request) {
-    if r.Method != http.MethodPost {
-       http.Error(w, "Hanya Post yang diizinkan", http.StatusMethodNotAllowed)
-       return
-    }
-       urlAsli := r.FormValue("url")
-
-   if urlAsli == "" {
-      http.Error(w, "URL Tidak Boleh Kosong", http.StatusBadRequest)
-      return
-   }
-      parsedURL, err := url.ParseRequestURI(urlAsli)
-   if err != nil || parsedURL.Host == "" ||
-   (parsedURL.Scheme != "http" && parsedURL.Scheme != "https") {
-      http.Error(w, "URL tidak valid", http.StatusBadRequest)
-      return
-   }
-
-   var code string
-    for {
-    	code = generateCode(6)
-    	_, ada := store.Search(code)
-    	if !ada {
-    		break
-    	}
-    }
-    store.Simpan(urlAsli, code)
-    fmt.Fprint(w, code)
- }
-
- func redirectHandler(w http.ResponseWriter, r *http.Request) {
-   code := strings.TrimPrefix(r.URL.Path, "/s/")
-   urlAsli, ada := store.Search(code)
-
-   if  !ada  {
-   isi, err := os.ReadFile("static/404.html")
-   if err != nil {
-   	http.NotFound(w, r)
-   	return
-   }
-   w.Header().Set("Content-Type", "text/html; charset=utf-8")
-   w.WriteHeader(http.StatusNotFound)
-   w.Write(isi)
-   return
-   }
-   http.Redirect(w, r, urlAsli, http.StatusFound)
-   return
- }
